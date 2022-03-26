@@ -68,7 +68,7 @@ void MainWindow::on_pushButton_2_clicked()
         ui->label_4->clear();
         ui->label_4->setText(ui->label_4->text() + "Третья сторона равна: " + QString::number(c));
     }
-    if  (angle_1 < 90)
+    if  (angle_1 > 90)
     {
         c = sqrt(pow(a,2) + pow(b,2) - (2*a*b) * (cos(angle_1)));
         ui->label_4->clear();
