@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="C#">C#.png</file>
+        <file alias="C++">C++.png</file>
+        <file alias="Java">java.png</file>
+        <file alias="JavaScript">JavaScript.png</file>
+        <file alias="PHP">php.png</file>
+        <file alias="Python">python.png</file>
+    </qresource>
+</RCC>
