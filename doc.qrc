@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="about">about.txt</file>
+    </qresource>
+</RCC>
