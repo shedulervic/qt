@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTranslator>
+#include <QShortcut>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -33,5 +34,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
      QTranslator qtLanguageTranslator;
+     QShortcut *keyOpen;
+     QShortcut *keySave;
+     QShortcut *keyNew;
+     QShortcut *keyQuit;
 };
 #endif // MAINWINDOW_H

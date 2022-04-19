@@ -5,6 +5,8 @@
 #include <QTextStream>
 #include <QMessageBox>
 #include <QTextCodec>
+#include <QShortcut>
+#include <QSettings>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,11 +16,40 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->comboBox_lang->addItems(QStringList() << "ru_RU" << "en_US");
     ui->comboBox_mode->addItems(QStringList() << "rw" << "read");
+
+    QSettings *settings = new QSettings("settings.conf",QSettings::IniFormat);
+         settings->setValue("function/Open", "ctrl+O");
+         settings->setValue("function/Save", "ctrl+S");
+         settings->setValue("function/New", "ctrl+N");
+         settings->setValue("function/Quit", "ctrl+Q");
+         settings->sync();
+
+         QSettings *settings2 = new QSettings("settings.conf",QSettings::IniFormat);
+         QStringList sett = QStringList() << settings2->value("function/Open",5).toString() <<  settings2->value("function/Save",5).toString()
+                                          << settings2->value("function/New",5).toString() << settings2->value("function/Quit",5).toString();
+    ui->listWidget->addItems(sett);
+
+    keyOpen = new QShortcut(this);
+    keySave = new QShortcut(this);
+    keyNew = new QShortcut(this);
+    keyQuit = new QShortcut(this);
+    keyOpen->setKey(settings2->value("function/Open",5).toString());
+    keySave->setKey(settings2->value("function/Save",5).toString());
+    keyNew->setKey(settings2->value("function/New",5).toString());
+    keyQuit->setKey(settings2->value("function/Quit",5).toString());
+
+    connect(keyOpen, SIGNAL(activated()), this, SLOT(on_pushButton_Open_clicked()));
+    connect(keySave, SIGNAL(activated()), this, SLOT(on_pushButton_Save_clicked()));
 }
+
+
 
 QString engHelp = "Some help";
 QString ruHelp = "Какая-то помощь";
 QString help;
+
+
+
 
 void MainWindow::changeEvent(QEvent *event)
 {
