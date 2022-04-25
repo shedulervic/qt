@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="Medize">Medize.qss</file>
+        <file alias="Darkeum">Darkeum.qss</file>
+    </qresource>
+</RCC>
