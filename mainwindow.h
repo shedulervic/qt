@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMdiArea>
+#include <QTextEdit>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,7 +18,17 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+
+
+    void on_openButton_clicked();
+
+
+    void on_Print_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QMdiArea *mdiArea;
+QTextEdit *curEdit;
 };
 #endif // MAINWINDOW_H
